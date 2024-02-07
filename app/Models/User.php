@@ -42,4 +42,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    protected $appends = ['points'];
+
+    public function answers()
+    {
+        return $this->hasMany(Answer::class);
+    }
+
+    public function getPointsAttribute()
+    {
+        return $this->answers()->where('is_correct', true)->sum('points');
+    }
 }

@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('question_id')->constrained();
-            $table->foreignId('choice_id')->constrained();
+            $table->string('chosen_option');
+            $table->boolean('is_correct')->default(false);
             $table->timestamps();
         });
     }

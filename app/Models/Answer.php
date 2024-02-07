@@ -20,8 +20,4 @@ class Answer extends Model
         return $this->belongsTo(Question::class);
     }
 
-    public function choice(): BelongsTo
-    {
-        return $this->belongsTo(Choice::class);
-    }
 }

@@ -15,8 +15,12 @@ return new class extends Migration
             $table->id();
             $table->foreignId('quiz_id')->constrained();
             $table->text('question');
-            $table->integer('point', 5);
-            $table->boolean('true');
+            $table->enum('correct_option', ['option_1', 'option_2', 'option_3', 'option_4']);
+            $table->string('option_1');
+            $table->string('option_2');
+            $table->string('option_3');
+            $table->string('option_4');
+            $table->integer('point', 5)->default(0);
             $table->timestamps();
         });
     }
